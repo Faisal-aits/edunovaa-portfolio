@@ -5,7 +5,7 @@ import feeCollectionImg from '../assets/images/fee-collection.png';
 import studentManagementImg from '../assets/images/student-management.png';
 import teachersImg from '../assets/images/teachers.png';
 import attendanceImg from '../assets/images/attendance.png';
-import adminVideo from '../assets/images/Admin-login-School Management System-.mp4';
+
 
 const Features = () => {
   const videoRef = useRef(null);
