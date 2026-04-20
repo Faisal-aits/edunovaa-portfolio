@@ -52,6 +52,7 @@
   box-shadow: 0 8px 28px rgba(74, 144, 217, 0.1);
   transition: all 0.35s ease;
   background: #FFFFFF;
+  cursor: pointer;
 }
 
 .portals-section-card:hover,
@@ -186,6 +187,25 @@
   opacity: 0.15;
 }
 
+/* Tap to play label — visible only on touch devices */
+.tap-to-play-label {
+  display: none;
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: 20px;
+  z-index: 3;
+  pointer-events: none;
+  white-space: nowrap;
+  backdrop-filter: blur(4px);
+}
+
 /* ── Responsive ── */
 @media (max-width: 768px) {
   .portals-section {
@@ -236,5 +256,9 @@
   .portals-section-feature {
     font-size: 12px;
     padding: 5px 0;
+  }
+
+  .tap-to-play-label {
+    display: block;
   }
 }

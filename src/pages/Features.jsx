@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import './Features.css';
 
 import adminDashboardImg from '../assets/images/admin-dashboard.png';
@@ -8,7 +8,20 @@ import teachersImg from '../assets/images/teachers.png';
 import attendanceImg from '../assets/images/attendance.png';
 
 const Features = () => {
-  const [isHovered, setIsHovered] = useState(false);
+  const [isActive, setIsActive] = useState(false);
+  const containerRef = useRef(null);
+
+  // Close video when tapping outside on mobile
+  const handleOutsideClick = useCallback((e) => {
+    if (containerRef.current && !containerRef.current.contains(e.target)) {
+      setIsActive(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    document.addEventListener('click', handleOutsideClick);
+    return () => document.removeEventListener('click', handleOutsideClick);
+  }, [handleOutsideClick]);
 
   return (
     <div className="features-page" style={{ paddingTop: '80px' }}>
@@ -36,9 +49,14 @@ const Features = () => {
               </div>
 
               <div
-                className={`hover-video-container${isHovered ? ' is-hovered' : ''}`}
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
+                ref={containerRef}
+                className={`hover-video-container${isActive ? ' is-hovered' : ''}`}
+                onMouseEnter={() => setIsActive(true)}
+                onMouseLeave={() => setIsActive(false)}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setIsActive((prev) => !prev);
+                }}
               >
 
                 {/* IMAGE */}
@@ -48,8 +66,13 @@ const Features = () => {
                   className="hover-image"
                 />
 
-                {/* VIDEO — only mounted on hover so autoplay works */}
-                {isHovered && (
+                {/* Tap to play label on mobile */}
+                {!isActive && (
+                  <div className="tap-to-play-label">▶ Tap to play demo</div>
+                )}
+
+                {/* VIDEO — only mounted when active */}
+                {isActive && (
                   <iframe
                     className="hover-video"
                     src="https://www.youtube.com/embed/q__MX2JkfWQ?autoplay=1&mute=1&loop=1&playlist=q__MX2JkfWQ"

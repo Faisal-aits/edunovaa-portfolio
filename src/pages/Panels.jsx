@@ -1,12 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { FaChalkboardTeacher, FaUserGraduate } from 'react-icons/fa';
 import './Panels.css';
 import teachersImg from '../assets/images/teachers.png';
 import studentAttendanceImg from '../assets/images/student-attendance.png';
 
 const Panels = () => {
-  const [teacherHovered, setTeacherHovered] = useState(false);
-  const [studentHovered, setStudentHovered] = useState(false);
+  const [teacherActive, setTeacherActive] = useState(false);
+  const [studentActive, setStudentActive] = useState(false);
+  const teacherRef = useRef(null);
+  const studentRef = useRef(null);
+
+  // Close videos when tapping outside on mobile
+  const handleOutsideClick = useCallback((e) => {
+    if (teacherRef.current && !teacherRef.current.contains(e.target)) {
+      setTeacherActive(false);
+    }
+    if (studentRef.current && !studentRef.current.contains(e.target)) {
+      setStudentActive(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    document.addEventListener('click', handleOutsideClick);
+    return () => document.removeEventListener('click', handleOutsideClick);
+  }, [handleOutsideClick]);
 
   return (
     <div className="portals-page" style={{ paddingTop: '80px' }}>
@@ -21,9 +38,14 @@ const Panels = () => {
           <div className="portals-section-grid">
             {/* Teacher Panel */}
             <div
-              className={`portals-section-card portals-section-card-teal${teacherHovered ? ' is-hovered' : ''}`}
-              onMouseEnter={() => setTeacherHovered(true)}
-              onMouseLeave={() => setTeacherHovered(false)}
+              ref={teacherRef}
+              className={`portals-section-card portals-section-card-teal${teacherActive ? ' is-hovered' : ''}`}
+              onMouseEnter={() => setTeacherActive(true)}
+              onMouseLeave={() => setTeacherActive(false)}
+              onClick={(e) => {
+                e.stopPropagation();
+                setTeacherActive((prev) => !prev);
+              }}
             >
               <div className="portals-card-row">
                 <div className="portals-card-info">
@@ -44,7 +66,10 @@ const Panels = () => {
                 </div>
                 <div className="portals-section-screen">
                   <img src={teachersImg} alt="Teacher Dashboard" className="portals-section-screen-image" />
-                  {teacherHovered && (
+                  {!teacherActive && (
+                    <div className="tap-to-play-label">▶ Tap to play demo</div>
+                  )}
+                  {teacherActive && (
                     <iframe
                       className="portals-section-screen-video"
                       src="https://www.youtube.com/embed/ys_k65ez0uE?autoplay=1&mute=1&loop=1&playlist=ys_k65ez0uE"
@@ -60,9 +85,14 @@ const Panels = () => {
 
             {/* Student Panel */}
             <div
-              className={`portals-section-card portals-section-card-gold${studentHovered ? ' is-hovered' : ''}`}
-              onMouseEnter={() => setStudentHovered(true)}
-              onMouseLeave={() => setStudentHovered(false)}
+              ref={studentRef}
+              className={`portals-section-card portals-section-card-gold${studentActive ? ' is-hovered' : ''}`}
+              onMouseEnter={() => setStudentActive(true)}
+              onMouseLeave={() => setStudentActive(false)}
+              onClick={(e) => {
+                e.stopPropagation();
+                setStudentActive((prev) => !prev);
+              }}
             >
               <div className="portals-card-row">
                 <div className="portals-card-info">
@@ -83,7 +113,10 @@ const Panels = () => {
                 </div>
                 <div className="portals-section-screen">
                   <img src={studentAttendanceImg} alt="Student Dashboard" className="portals-section-screen-image" />
-                  {studentHovered && (
+                  {!studentActive && (
+                    <div className="tap-to-play-label">▶ Tap to play demo</div>
+                  )}
+                  {studentActive && (
                     <iframe
                       className="portals-section-screen-video"
                       src="https://www.youtube.com/embed/mbwzDjmv1x8?autoplay=1&mute=1&loop=1&playlist=mbwzDjmv1x8"
