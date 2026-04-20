@@ -1,0 +1,238 @@
+.portals-page {
+  background: #F0F9FF;
+  min-height: 100vh;
+}
+
+.portals-section {
+  padding: 48px 24px;
+}
+
+.portals-section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.portals-section-label {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 8vw, 4rem);
+  font-weight: 800;
+  color: var(--text-h);
+  margin-bottom: 5px;
+  line-height: 1.1;
+}
+
+.portals-section-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #4A90D9;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.portals-section-intro {
+  font-size: 1.1rem;
+  color: #6B7280;
+  max-width: 700px;
+  margin: 0 auto 50px;
+}
+
+.portals-section-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* ── Panel Card ── */
+.portals-section-card {
+  border-radius: 14px;
+  overflow: hidden;
+  border: 2px solid #B8D4E8;
+  box-shadow: 0 8px 28px rgba(74, 144, 217, 0.1);
+  transition: all 0.35s ease;
+  background: #FFFFFF;
+}
+
+.portals-section-card:hover,
+.portals-section-card:active {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(74, 144, 217, 0.18);
+}
+
+.portals-section-card-teal {
+  border-color: #e8f4fd;
+}
+
+.portals-section-card-gold {
+  border-color: #e8f4fd;
+}
+
+/* ── Row Layout (info left + screen right) ── */
+.portals-card-row {
+  display: flex;
+  flex-direction: row;
+  min-height: 320px;
+}
+
+.portals-card-info {
+  flex: 0 0 38%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Header ── */
+.portals-section-header {
+  padding: 18px 22px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #FFFFFF;
+}
+
+.portals-section-header-teal {
+  background: #4A90D9;
+}
+
+.portals-section-header-gold {
+  background: #4A90D9;
+  color: #FFFFFF;
+}
+
+.portals-section-header-icon {
+  font-size: 22px;
+}
+
+.portals-section-header-title {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.portals-section-header-sub {
+  font-size: 11px;
+  opacity: 0.8;
+}
+
+/* ── Features List ── */
+.portals-section-features {
+  flex: 1;
+  padding: 16px 22px;
+  background: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.portals-section-feature {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  color: #1A1A2E;
+  padding: 6px 0;
+  border-bottom: 1px solid #e2ecf4;
+  text-align: left;
+}
+
+.portals-section-feature:last-child {
+  border-bottom: none;
+}
+
+.portals-section-feature::before {
+  content: '✓';
+  color: #4A90D9;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* ── Screen / Video Preview ── */
+.portals-section-screen {
+  flex: 1;
+  overflow: hidden;
+  background: #E8F4FD;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  min-height: 280px;
+}
+
+.portals-section-screen-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: opacity 0.3s ease;
+}
+
+.portals-section-screen-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.portals-section-card:hover .portals-section-screen-video {
+  opacity: 1;
+}
+
+.portals-section-card:hover .portals-section-screen-image {
+  opacity: 0.2;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .portals-section {
+    padding: 60px 16px;
+  }
+
+  .portals-section-label {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+  }
+
+  .portals-section-title {
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+  }
+
+  .portals-section-intro {
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+
+  .portals-card-row {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .portals-card-info {
+    flex: none;
+  }
+
+  .portals-section-screen {
+    min-height: 200px;
+    height: 200px;
+  }
+
+  .portals-section-header {
+    padding: 12px 15px;
+  }
+
+  .portals-section-header-title {
+    font-size: 13px;
+  }
+
+  .portals-section-features {
+    padding: 12px 15px;
+  }
+
+  .portals-section-feature {
+    font-size: 12px;
+    padding: 5px 0;
+  }
+}

@@ -1,0 +1,381 @@
+/* Hero Section */
+.hero {
+  background-color: #F0F9FF;
+  padding: 120px 0 60px;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 40px;
+  align-items: center;
+  width: 100%;
+  padding: 0 24px;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #E8F4FD;
+  color: #357ABD;
+  padding: 8px 16px;
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.hero-badge-icon {
+  font-size: 16px;
+}
+
+.hero-title {
+  margin-bottom: 24px;
+  display: flex;
+  color: #0958a5;
+}
+
+.hero-title-logo {
+  max-width: 450px;
+  width: 100%;
+  height: auto;
+  mix-blend-mode: multiply;
+}
+
+.hero-title-gold {
+  color: #4A90D9;
+}
+
+.hero-subtitle {
+  font-size: 18px;
+  color: #4A5568;
+  max-width: 600px;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.hero-tagline {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 600;
+  color: #357ABD;
+  margin-bottom: 40px;
+  font-style: italic;
+}
+
+.hero-cta-btn {
+  background: #1A1A2E;
+  color: #FFFFFF;
+  border: none;
+  padding: 18px 36px;
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 25px rgba(26, 26, 46, 0.2);
+}
+
+.hero-cta-btn:hover {
+  background: #357ABD;
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(53, 122, 189, 0.3);
+}
+
+.hero-image-area {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-mockup-img {
+  width: 100%;
+  max-width: 550px;
+  height: auto;
+  filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.1));
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Role Strip - Updated to Light Theme */
+.role-strip {
+  background: #FFFFFF;
+  padding: 40px 24px;
+}
+
+.role-strip-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.role-strip-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.role-strip-icon {
+  font-size: 32px;
+  color: #4A90D9;
+  flex-shrink: 0;
+}
+
+.role-strip-name {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #1A1A2E;
+  margin-bottom: 4px;
+}
+
+.role-strip-desc {
+  font-size: 0.9rem;
+  color: #718096;
+  line-height: 1.5;
+}
+
+/* Benefits Section */
+.benefits {
+  background: #F0F9FF;
+  padding: 100px 24px;
+}
+
+.benefits-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.benefits-header {
+  margin-bottom: 50px;
+}
+
+.benefits-title {
+  font-family: var(--font-heading);
+  font-size: clamp(28px, 5vw, 42px);
+  font-weight: 800;
+  color: #1A1A2E;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.benefits-card {
+  padding: 32px;
+  border-radius: 20px;
+  background: #FFFFFF;
+  border: 1px solid #B8D4E8;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.benefits-card:hover,
+.benefits-card:active {
+  transform: translateY(-5px);
+  border-color: #4A90D9;
+  background: #FFFFFF;
+  box-shadow: 0 20px 40px rgba(74, 144, 217, 0.1);
+}
+
+.benefits-card-icon {
+  font-size: 32px;
+  background: #E8F4FD;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  color: #4A90D9;
+}
+
+.benefits-card-title {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 700;
+  color: #1A1A2E;
+  margin-bottom: 8px;
+}
+
+.benefits-card-desc {
+  font-size: 15px;
+  color: #4A5568;
+  line-height: 1.6;
+}
+
+/* Tech Stack */
+.tech-stack {
+  background: #F0F9FF;
+  padding: 48px 24px;
+  border-top: 1px solid #B8D4E8;
+  border-bottom: 1px solid #B8D4E8;
+}
+
+.tech-stack-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.tech-stack-label {
+  font-weight: 700;
+  color: #1A1A2E;
+  font-size: 16px;
+}
+
+.tech-stack-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tech-pill {
+  background: #FFFFFF;
+  border: 1px solid #B8D4E8;
+  padding: 6px 16px;
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #357ABD;
+}
+
+/* Why Choose Section */
+.why-choose {
+  padding: 80px 24px;
+  background: #F0F9FF;
+}
+
+.why-choose-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.why-choose-header {
+  margin-bottom: 28px;
+}
+
+.why-choose-title {
+  font-family: var(--font-heading);
+  font-size: clamp(26px, 4vw, 32px);
+  font-weight: 700;
+  color: #1A1A2E;
+}
+
+.why-choose-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.why-choose-card {
+  border-left: 4px solid #4A90D9;
+  padding: 16px 20px;
+  background: #FFFFFF;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.why-choose-card:hover,
+.why-choose-card:active {
+  background: #E8F4FD;
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(74, 144, 217, 0.15);
+}
+
+.why-choose-card-title {
+  font-weight: 700;
+  font-size: 16px;
+  color: #1A1A2E;
+  margin-bottom: 8px;
+}
+
+.why-choose-card-desc {
+  font-size: 14px;
+  color: #4A5568;
+  line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .hero-content {
+    max-width: 100%;
+    margin: 0 auto;
+    position: relative;
+    bottom: 79px;
+  }
+
+  .hero-stats-box {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 100px 20px 40px;
+  }
+
+  .hero-stats-box {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .role-strip-container {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .role-strip-item {
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+  }
+
+  .tech-stack-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .why-choose {
+    padding: 36px 16px;
+  }
+
+  .why-choose-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,68 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --primary: #4A90D9;
+  --primary-light: #6BA3E0;
+  --primary-dark: #357ABD;
+  --dark: #1A1A2E;
+  --ink: #1A1A2E;
+  --text: #1A1A2E;
+  --text-secondary: #4A5568;
+  --muted: #718096;
+  --white: #FFFFFF;
+  --light-blue: #E8F4FD;
+  --light-blue-2: #F0F9FF;
+  --border: #B8D4E8;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--light-blue-2);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  font-size: 16px;
+}
+
+.app {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Scroll to top button */
+.scroll-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background: var(--primary);
+  color: var(--white);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.scroll-top:hover {
+  background: var(--primary-light);
+  transform: translateY(-3px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .scroll-top {
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+}

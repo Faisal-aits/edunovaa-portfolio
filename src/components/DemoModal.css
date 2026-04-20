@@ -1,0 +1,146 @@
+.demo-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 20px;
+  animation: fadeIn 0.3s ease;
+}
+
+.demo-modal-content {
+  background: white;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 450px;
+  padding: 40px 30px;
+  position: relative;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  animation: slideUp 0.3s ease;
+}
+
+.demo-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #F1F5F9;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: #64748B;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.demo-modal-close:hover {
+  background: #E2E8F0;
+  color: #0F172A;
+  transform: rotate(90deg);
+}
+
+.demo-modal-title {
+  color: #0F172A;
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.demo-modal-subtitle {
+  color: #64748B;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 1rem;
+}
+
+.demo-modal-options {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.demo-option-card {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-radius: 16px;
+  text-decoration: none;
+  border: 1px solid #E2E8F0;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.demo-option-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.email-card:hover { border-color: #3B82F6; }
+.whatsapp-card:hover { border-color: #22C55E; }
+.call-card:hover { border-color: #F59E0B; }
+
+.demo-option-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-right: 15px;
+  flex-shrink: 0;
+}
+
+.email-card .demo-option-icon { background: #EFF6FF; color: #3B82F6; }
+.whatsapp-card .demo-option-icon { background: #DCFCE7; color: #22C55E; }
+.call-card .demo-option-icon { background: #FEF3C7; color: #F59E0B; }
+
+.demo-option-text {
+  flex-grow: 1;
+}
+
+.demo-option-text h3 {
+  color: #0F172A;
+  margin: 0 0 4px 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.demo-option-text p {
+  color: #64748B;
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+.demo-option-arrow {
+  color: #CBD5E1;
+  font-size: 1.2rem;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+}
+
+.demo-option-card:hover .demo-option-arrow {
+  transform: translateX(5px);
+  color: #0F172A;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
