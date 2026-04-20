@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaChalkboardTeacher, FaUserGraduate } from 'react-icons/fa';
 import './Panels.css';
 import teachersImg from '../assets/images/teachers.png';
 import studentAttendanceImg from '../assets/images/student-attendance.png';
 
 const Panels = () => {
+  const [teacherHovered, setTeacherHovered] = useState(false);
+  const [studentHovered, setStudentHovered] = useState(false);
+
   return (
     <div className="portals-page" style={{ paddingTop: '80px' }}>
       <section id="portals" className="portals-section">
@@ -17,7 +20,11 @@ const Panels = () => {
 
           <div className="portals-section-grid">
             {/* Teacher Panel */}
-            <div className="portals-section-card portals-section-card-teal">
+            <div
+              className={`portals-section-card portals-section-card-teal${teacherHovered ? ' is-hovered' : ''}`}
+              onMouseEnter={() => setTeacherHovered(true)}
+              onMouseLeave={() => setTeacherHovered(false)}
+            >
               <div className="portals-card-row">
                 <div className="portals-card-info">
                   <div className="portals-section-header portals-section-header-teal">
@@ -36,21 +43,27 @@ const Panels = () => {
                   </div>
                 </div>
                 <div className="portals-section-screen">
-                   <img src={teachersImg} alt="Teacher Dashboard" className="portals-section-screen-image" />
-                   <video 
-                    src={teacherVideo} 
-                    className="portals-section-screen-video" 
-                    muted 
-                    loop 
-                    playsInline 
-                    autoPlay
-                  />
+                  <img src={teachersImg} alt="Teacher Dashboard" className="portals-section-screen-image" />
+                  {teacherHovered && (
+                    <iframe
+                      className="portals-section-screen-video"
+                      src="https://www.youtube.com/embed/ys_k65ez0uE?autoplay=1&mute=1&loop=1&playlist=ys_k65ez0uE"
+                      title="Teacher Demo"
+                      frameBorder="0"
+                      allow="autoplay; encrypted-media"
+                      allowFullScreen
+                    ></iframe>
+                  )}
                 </div>
               </div>
             </div>
 
             {/* Student Panel */}
-            <div className="portals-section-card portals-section-card-gold">
+            <div
+              className={`portals-section-card portals-section-card-gold${studentHovered ? ' is-hovered' : ''}`}
+              onMouseEnter={() => setStudentHovered(true)}
+              onMouseLeave={() => setStudentHovered(false)}
+            >
               <div className="portals-card-row">
                 <div className="portals-card-info">
                   <div className="portals-section-header portals-section-header-gold">
@@ -69,15 +82,17 @@ const Panels = () => {
                   </div>
                 </div>
                 <div className="portals-section-screen">
-                   <img src={studentAttendanceImg} alt="Student Dashboard" className="portals-section-screen-image" />
-                   <video 
-                    src={studentVideo} 
-                    className="portals-section-screen-video" 
-                    muted 
-                    loop 
-                    playsInline 
-                    autoPlay
-                  />
+                  <img src={studentAttendanceImg} alt="Student Dashboard" className="portals-section-screen-image" />
+                  {studentHovered && (
+                    <iframe
+                      className="portals-section-screen-video"
+                      src="https://www.youtube.com/embed/mbwzDjmv1x8?autoplay=1&mute=1&loop=1&playlist=mbwzDjmv1x8"
+                      title="Student Demo"
+                      frameBorder="0"
+                      allow="autoplay; encrypted-media"
+                      allowFullScreen
+                    ></iframe>
+                  )}
                 </div>
               </div>
             </div>

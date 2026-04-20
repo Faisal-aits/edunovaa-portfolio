@@ -63,65 +63,54 @@
   text-align: center;
 }
 
-.admin-section-screen-card-frame {
-  height: 400px;
-  background: #E8F4FD;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.admin-section-screen-card-frame-main {
-  height: auto;
-  min-height: 500px;
-  padding: 0;
+/* 🔥 MAIN VIDEO CONTAINER FIX */
+.hover-video-container {
   position: relative;
-}
-
-.admin-section-screen-card-frame-small {
-  height: 280px;
-  background: #E8F4FD;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  /* FIXED RATIO */
   overflow: hidden;
+  border-radius: 10px;
 }
 
-.admin-section-screen-image {
+/* IMAGE */
+.hover-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
-.admin-section-screen-image-main {
-  object-fit: contain;
-  width: 100%;
-  height: auto;
-  max-height: none;
-  transition: opacity 0.3s ease;
-}
-
-.admin-section-screen-image-main.hidden {
-  opacity: 0;
-}
-
-.admin-section-screen-video {
+/* VIDEO */
+.hover-video {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  border: none;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.4s ease;
+  z-index: 2;
   pointer-events: none;
 }
 
-.admin-section-screen-video.visible {
+/* HOVER EFFECT — class-based so it works with conditional rendering */
+.hover-video-container.is-hovered .hover-video {
   opacity: 1;
+  pointer-events: auto;
 }
 
+.hover-video-container.is-hovered .hover-image {
+  opacity: 0.15;
+}
+
+/* REMOVE OLD IMAGE HIDING ❌ */
+/* .admin-section-screen-image-main {
+  display: none;
+} */
+
+/* SMALL CARDS */
 .admin-section-screens-two {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -147,6 +136,21 @@
   text-align: center;
 }
 
+.admin-section-screen-card-frame-small {
+  height: 280px;
+  background: #E8F4FD;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.admin-section-screen-card-frame-small img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .admin-section {
@@ -157,15 +161,7 @@
     grid-template-columns: 1fr;
   }
 
-  .admin-section-screen-card-frame-main {
-    min-height: 250px;
-  }
-
-  .admin-section-screen-card-frame {
-    height: 180px;
-  }
-
-  .admin-section-screen-card-frame-small {
-    height: 140px;
+  .hover-video-container {
+    aspect-ratio: 16 / 9;
   }
 }
