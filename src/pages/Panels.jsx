@@ -3,8 +3,6 @@ import { FaChalkboardTeacher, FaUserGraduate } from 'react-icons/fa';
 import './Panels.css';
 import teachersImg from '../assets/images/teachers.png';
 import studentAttendanceImg from '../assets/images/student-attendance.png';
-import teacherVideo from '../assets/images/Teacher-login-School Management System.mp4';
-import studentVideo from '../assets/images/Student-Login-School Management System (1).mp4';
 
 const Panels = () => {
   return (
