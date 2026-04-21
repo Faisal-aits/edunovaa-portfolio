@@ -45,7 +45,7 @@ const Footer = () => {
                 <div className="icon-box"><FiMapPin /></div>
                 <div className="info-text">
                   <span className="info-label">Our Office</span>
-                  <p>Gulmohar Road, Sambhajinagar Road, Above Indian Bank, Below Power House Gym, Ahmednagar</p>
+                  <p>Gulmohar Road, Sambhajinagar Road, Above Indian Bank, Below Power House Gym, Ahliyanagar</p>
                 </div>
               </a>
               <a href="tel:+919322195628" className="contact-info-item">
